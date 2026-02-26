@@ -61,5 +61,18 @@ function updateWallet(req,res){
     res.status(200).json(data.wallets[indexW])
 }
 
+function deleteWallet(req,res){
+    const data =readData()
+    const indexWallet=data.wallets.findIndex(w=>w.id== req.params.id)
+    if(indexWallet=== -1){
+        res.status(404).json({message:"wallet non trouvé"})
+        return
+    }
+    data.wallets.splice(indexWallet,1)
+    writeData(data)
+    res.status(200).json({message:"wallet est supprimé"})
+}
+
+
 
 module.exports={createWallet,readWallet,walletID,updateWallet,deleteWallet,deposit,retirer}
