@@ -1,0 +1,30 @@
+{
+  "users": [
+    {
+      "ID": 1772016036716,
+      "name": "ali",
+      "email": "ali@gmail.com",
+      "phone": 873429
+    },
+    {
+      "ID": 1772017595632,
+      "name": "imane darha rassha",
+      "email": "jkds@jdsaz",
+      "phone": 73248
+    },
+    {
+      "ID": 1772017612195,
+      "name": "salah",
+      "email": "jkds@jdsaz",
+      "phone": 73248
+    }
+  ],
+  "wallets": [
+    {
+      "id": 1772100468061,
+      "user_id": 1772017612195,
+      "name": "bztam",
+      "sold": 3000
+    }
+  ]
+}
