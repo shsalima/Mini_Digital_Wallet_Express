@@ -73,6 +73,45 @@ function deleteWallet(req,res){
     res.status(200).json({message:"wallet est supprimé"})
 }
 
+function deposit(req,res){
+    const data=readData()
+    const wallet=data.wallets.find(w=>w.id ==req.params.id)
+    if(!wallet){
+        res.status(404).json({message:"wallet non trouvé"})
+    }
+    const {montant}=req.body
+    if(!montant || montant<=0){
+        res.status(400).json({message:"montant doit etre positif"})
+        return
+    }
+    wallet.sold +=montant
+    writeData(data)
+    res.status(200).json({message:"deposit effectué",wallet})
+}
 
+function retirer(req,res){
+    const data=readData()
+    const wallet=data.wallets.find(w=>w.id== req.params.id)
+
+
+    if(!wallet){
+        res.status(404).json({message:"wallet non trouvé"})
+        return
+
+    }
+    const {montant}=req.body
+    if(!montant || montant<=0){
+        res.status(400).json({message:"montant doit etre positif"})
+        return
+    }
+    if(wallet.sold <montant){
+        res.status(404).json({message:"sold inférieur"})
+        return
+    }
+    wallet.sold -=montant
+    writeData(data)
+    res.status(200).json({message:"retrait effectué",wallet})
+
+}
 
 module.exports={createWallet,readWallet,walletID,updateWallet,deleteWallet,deposit,retirer}
