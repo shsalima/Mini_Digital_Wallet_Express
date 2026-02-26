@@ -8,7 +8,8 @@ router.get("/",readWallet)
 router.get("/:id",walletID)
 router.put("/:id",updateWallet)
 router.delete("/:id",deleteWallet)
-
+router.post("/:id/deposit",deposit)
+router.post("/:id/retirer",retirer)
 
 
 module.exports=router
