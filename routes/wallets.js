@@ -5,6 +5,10 @@ const {createWallet,readWallet,walletID,updateWallet,deleteWallet,deposit,retire
 
 router.post("/",createWallet)
 router.get("/",readWallet)
+router.get("/:id",walletID)
+router.put("/:id",updateWallet)
+router.delete("/:id",deleteWallet)
+
 
 
 module.exports=router
