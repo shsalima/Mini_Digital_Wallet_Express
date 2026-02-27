@@ -5,10 +5,7 @@ function createWallet(req,res){
     const data=readData()
     const {user_id,name}=req.body
 
-    if(!user_id || !name){
-        res.status(400).json({message:"tout champs obligatores"})
-        return
-    }
+
     const user=data.users.find(u=>u.ID== user_id)
     if(!user){
         res.status(400).json({message:"utilisateur non trouvé"})

@@ -8,4 +8,15 @@ function validationUser(req,res,next){
     }
     next()
 }
-module.exports={validationUser}
+
+function validatewallet(req,res,next){
+    const {user_id,name}=req.body
+     if(!user_id || !name){
+        res.status(400).json({message:"tous les champs sont obligatoires "})
+     }
+     next()
+}
+
+
+
+module.exports={validationUser,validatewallet}

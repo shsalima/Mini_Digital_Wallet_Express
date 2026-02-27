@@ -9,8 +9,7 @@ router.get('/',readUser)
 router.get('/:id',userId)
 router.put('/:id',validationUser,updateUser)
 router.delete('/:id',deleteUser)
-router.post('/:id/deposit')
-router.post('/:id/retirer')
+
 
 
 module.exports=router;
