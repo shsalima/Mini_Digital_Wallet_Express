@@ -7,9 +7,7 @@ const {readData,writeData}=require("../data/store")
 function createUser(req,res){
     const data=readData()
     const {name,email,phone}=req.body;
-    if(!name || !email || !phone){
-        return res.status(400).json({message:"tout champs obligatoires "})
-    }
+
     const newUser={
         ID:Date.now(),
         name,

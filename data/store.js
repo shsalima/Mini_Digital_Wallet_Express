@@ -17,5 +17,6 @@
     fs.writeFileSync(filePath,JSON.stringify(data,null,2))
 
  }
+ module.exports={readData,writeData }
     
 
